@@ -66,10 +66,16 @@ const testCode = createTest(require('./export-data.js'));
 fs.writeFileSync('./tests/tests.mjs', testCode);
 
 // src/windows-1252.src.mjs → windows-1252.mjs
-const LIB_TEMPLATE = fs.readFileSync('./src/windows-1252.src.mjs', 'utf8');
-const createLib = template(LIB_TEMPLATE, TEMPLATE_OPTIONS);
-const libCode = createLib(require('./export-data.js'));
-fs.writeFileSync('./windows-1252.mjs', libCode);
+const LIB_TEMPLATE_MJS = fs.readFileSync('./src/windows-1252.src.mjs', 'utf8');
+const createLibMjs = template(LIB_TEMPLATE_MJS, TEMPLATE_OPTIONS);
+const libCodeMjs = createLibMjs(require('./export-data.js'));
+fs.writeFileSync('./windows-1252.mjs', libCodeMjs);
+
+// src/windows-1252.src.cjs → windows-1252.cjs
+const LIB_TEMPLATE_CJS = fs.readFileSync('./src/windows-1252.src.cjs', 'utf8');
+const createLibCjs = template(LIB_TEMPLATE_CJS, TEMPLATE_OPTIONS);
+const libCodeCjs = createLibCjs(require('./export-data.js'));
+fs.writeFileSync('./windows-1252.cjs', libCodeCjs);
 
 // src/windows-1252.d.ts → windows-1252.d.ts
 const TYPES_TEMPLATE = fs.readFileSync('./src/windows-1252.d.ts', 'utf8');
