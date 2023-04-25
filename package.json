@@ -47,6 +47,7 @@
 	"bugs": "https://github.com/mathiasbynens/windows-1252/issues",
 	"files": [
 		"LICENSE-MIT.txt",
+		"windows-1252.cjs",
 		"windows-1252.mjs",
 		"windows-1252.d.ts"
 	],
